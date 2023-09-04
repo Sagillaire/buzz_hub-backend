@@ -1,13 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-export type AuthDocument = HydratedDocument<Auth>;
+export type UserDocument = HydratedDocument<User>;
 
 @Schema({
   timestamps: true,
   versionKey: false,
 })
-export class Auth {
+export class User {
   @Prop({ required: true })
   username: string;
 
@@ -18,4 +18,4 @@ export class Auth {
   password: string;
 }
 
-export const AuthSchema = SchemaFactory.createForClass(Auth);
+export const UserSchema = SchemaFactory.createForClass(User);

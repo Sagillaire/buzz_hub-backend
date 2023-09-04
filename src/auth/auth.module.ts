@@ -1,4 +1,4 @@
-import { Auth, AuthSchema } from './schema/auth.schema';
+import { User, UserSchema } from './schema/auth.schema';
 import { AuthController } from './auth.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { JwtStrategy } from './jwt.strategy';
@@ -8,7 +8,7 @@ import { Module } from '@nestjs/common';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Auth.name, schema: AuthSchema }]),
+    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     JwtModule.register({
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '1h' },
